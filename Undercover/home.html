@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Undercover</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: black;
+    }
+
+    .header {
+      width: 100%;
+    }
+
+    .header img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .navbar {
+      background-color: #011620;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    .navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar li {
+      display: inline-block;
+      margin: 0 10px;
+    }
+
+    .navbar a {
+      color: #36E9FD;
+      text-decoration: none;
+      padding: 5px 10px;
+      text-shadow: 0 0 5px #36E9FD;
+    }
+
+    .navbar a:hover {
+      background-color: #36E9FD;
+      color: black;
+      border-radius: 10px;
+    }
+
+    .image {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .image h1 {
+      font-size: 30px;
+    }
+
+    .scroll-btn {
+      color: #36E9FD;
+      border: none;
+      padding: 10px 10px;
+      border-radius: 10px;
+      font-size: 20px;
+      cursor: pointer;
+      text-shadow: 0 0 5px #36E9FD;
+    }
+
+    .scroll-btn:hover {
+      background-color: #36E9FD;
+      color: black;
+    }
+
+    .next-section {
+      height: 85pc;
+      background-color: black;
+      text-align: center;
+      padding: 50px;
+      color: #fff;
+      font-size: 24px;
+      text-shadow: 0 0 5px white;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .schedule-section {
+      padding-top: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      margin: 0 auto;
+      width: 90%; /* Adjusted width for smaller screens */
+      margin-bottom: 10px;
+    }
+
+    .countdown-clock {
+      font-size: 40px;
+      margin-top: 20px;
+      color: #36E9FD;
+    }
+
+    .contact-section {
+      background-color: black;
+      text-align: center;
+      padding: 20px;
+      color: #fff;
+    }
+
+    .contact-section h2 {
+      margin-bottom: 20px;
+    }
+
+    .contact-info {
+      margin-bottom: 20px;
+    }
+
+    .contact-info p {
+      margin: 5px;
+    }
+
+    .contact-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .contact-icons a {
+      color: #36E9FD;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    td {
+      padding: 10px; /* Add space within each cell */
+    }
+
+    tr {
+      margin-bottom: 10px; /* Add space below each row */
+    }
+
+    th {
+      margin-bottom: 10px; /* Add space below each row */
+    }
+    
+    /* Media queries for phone screens */
+    @media only screen and (max-width: 600px) {
+      .image h1 {
+        font-size: 24px;
+      }
+
+      .next-section {
+        padding: 20px;
+        font-size: 20px;
+      }
+
+      .schedule-section {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="Images/Undercover_logo.png" alt="Header Photo">
+  </div>
+
+  <div class="navbar">
+    <ul>
+      <li><a href="#" class="scroll-btn" onclick="scrollToNext()">Players</a></li>
+      <li><a href="#" class="scroll-btn" onclick="scrollToSchedule()">Schedule</a></li>
+      <li><a href="#" class="scroll-btn" onclick="scrollToContact()">Contact</a></li>
+    </ul>
+  </div>
+  <div class="image">
+    <img src="Images/Samurai.png" alt="Samurai Photo">
+    <h1>Welcome to Undercover eSports</h1>
+  </div>
+  <div class="next-section">
+    <h2>Players</h2>
+    <div class="column_center">
+      <img src="Images/Gh_Sparta.png" alt="Image 1">
+      <p>Inspired by Kratos, the god of war and destruction, Sparta is
+        <br>
+        a player that brings a fearless and determined spirit to the game,
+        <br>
+        with solid skills and a never-give-up attitude.
+        <br>
+        Sparta gives his all.
+      </p>
+    </div>
+    <div class="column_center">
+      <img src="Images/Unknown.png" alt="Image 1">
+      <p>Welcome to the captivating world of Unknown, the mysterious player
+        <br>
+        whose identity remains a secret with unparalleled skills and abilities,
+        <br>
+        Delve into the realm of uncertainty, as this nameless player challenges
+        <br>
+        the very essence of what we know.
+      </p>
+    </div>
+    <div class="column_center">
+      <img src="Images/Apollo.png" alt="Image 1">
+      <p>Apollo, the player named after the legendary Greek god, Just like
+        <br>
+        his namesake, Apollo radiates brilliance and embodies grace on the field.
+        <br>
+        Prepare to be mesmerized as Apollo channels the power of his namesake,
+        <br>
+        Apollo, a god among players.
+      </p>
+    </div>
+  </div>
+  
+  <div class="next-section schedule-section">
+    <h2>Schedule</h2>
+    <div class="countdown-clock" id="countdown"></div>
+    <table>
+      <tr>
+        <th>Date</th>
+        <th>Vs</th>
+        <th>Location</th>
+        <th>Time</th>
+      </tr>
+      <tr>
+        <td>June 20</td>
+        <td>STR</td>
+        <td>Online</td>
+        <td>7:00 PM</td>
+      </tr>
+      <tr>
+        <td>June 20</td>
+        <td>Dogs</td>
+        <td>Online</td>
+        <td>8:00 PM</td>
+      </tr>
+    </table>
+  </div>
+  <div class="contact-section">
+    <h2>Contact</h2>
+    <div class="contact-info">
+      <p>For any questions, signups, sponsors, or business inquiries, contact us at:</p>
+      <p><a href="mailto:undercover@gmail.com">undercover@gmail.com</a></p>
+    </div>
+    <div class="contact-icons">
+      <a href="https://www.instagram.com" target="_blank"><img src="Images/Instagram_icon.png" alt="Instagram"></a>
+      <a href="https://www.facebook.com" target="_blank"><img src="Images/facebook_icon.png" alt="Facebook"></a>
+      <a href="https://www.twitter.com" target="_blank"><img src="Images/twitter_icon.png" alt="Twitter"></a>
+      <a href="https://www.twitch.tv" target="_blank"><img src="Images/twitch_icon.png" alt="Twitch"></a>
+    </div>
+  </div>
+
+  <script>
+    function scrollToNext() {
+      window.scrollTo({ top: document.querySelector('.next-section').offsetTop, behavior: 'smooth' });
+    }
+
+    function scrollToSchedule() {
+      window.scrollTo({ top: document.querySelector('.schedule-section').offsetTop, behavior: 'smooth' });
+    }
+
+    function scrollToContact() {
+      window.scrollTo({ top: document.querySelector('#contact').offsetTop - 50, behavior: 'smooth' });
+    }
+
+    // Countdown Clock
+    const countdownElement = document.getElementById('countdown');
+
+    function countdown() {
+      const now = new Date();
+      const eventDate = new Date('June 20, 2023 20:00:00 GMT+1300');
+      const difference = eventDate - now;
+
+      if (difference <= 0) {
+        countdownElement.innerHTML = "The match has already started!";
+      } else {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      }
+    }
+
+    setInterval(countdown, 1000);
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
